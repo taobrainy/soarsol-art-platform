@@ -1,4 +1,4 @@
-import { Layout, Row, Col, Image, Button, Space, Divider } from 'antd';
+import { Layout, Row, Col, Image, Button, Space, Input } from 'antd';
 import React from 'react';
 import { useStore } from '@oyster/common';
 import { useMeta } from '../../contexts';
@@ -35,7 +35,7 @@ export const HomeView = () => {
     {title: 'Top Collectors', images: ['./img/Ellipse 7.svg', './img/Ellipse 8.svg', './img/Ellipse 9.svg', './img/Ellipse 10.svg', './img/Ellipse 10.svg']}
   ];
 
-  const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = React.useState(true);
 
   return (
     <Layout>
@@ -50,11 +50,11 @@ export const HomeView = () => {
           </Col>
           <Col span={12}>
             <h4 className="feature_img">FEATURED ART</h4>
-            <Image src="./Art.svg" preview={false} />
+            <Image src="./Art.svg" preview={false} width="100%" />
           </Col>
           <Col span={12}></Col>
           <Col span={3}>
-              <h2 style={{color: 'Black'}}>ARTIST</h2>
+              <h4>ARTIST</h4>
               <div className="space-align-block">
                 <Space align="center">
                   <Image src="./avatar.svg" preview={false} />
@@ -80,7 +80,7 @@ export const HomeView = () => {
         </Row>
       </div>
       <div className="little_space">
-        <h2 style={{color: 'black', fontSize: '24px'}}>Top Collectibles</h2>
+        <h2>Top Collectibles</h2>
         <hr />
         <Row gutter={16}>
           {
@@ -111,7 +111,7 @@ export const HomeView = () => {
                       </div>
                     </Col>
                     <Col span={6}>
-                      <div className="space-align-block" style={{marginTop: '30px'}}>
+                      <div className="space-align-block" style={{marginTop: '40px'}}>
                         <Space align="center">
                           <Image src="./Vector.svg" preview={false} style={{width: '20px'}} />
                           <span className="mock-block" style={{color: '#C4C4C4'}}>{collection.number}</span>
@@ -130,7 +130,7 @@ export const HomeView = () => {
         </div>
       </div>
       <div className="little_space">
-        <h2 style={{color: 'black', fontSize: '24px'}}>Top Art</h2>
+        <h2>Top Art</h2>
         <hr />
         <Row gutter={16}>
           {
@@ -161,7 +161,7 @@ export const HomeView = () => {
                       </div>
                     </Col>
                     <Col span={6}>
-                      <div className="space-align-block" style={{marginTop: '30px'}}>
+                      <div className="space-align-block" style={{marginTop: '40px'}}>
                         <Space align="center">
                           <Image src="./Vector.svg" preview={false} style={{width: '20px'}} />
                           <span className="mock-block" style={{color: '#C4C4C4'}}>{collection.number}</span>
@@ -180,7 +180,7 @@ export const HomeView = () => {
         </div>
       </div>
       <div className="little_space">
-        <h2 style={{color: 'black', fontSize: '24px'}}>Top Photographies</h2>
+        <h2>Top Photographies</h2>
         <hr />
         <Row gutter={16}>
           {
@@ -211,7 +211,7 @@ export const HomeView = () => {
                       </div>
                     </Col>
                     <Col span={6}>
-                      <div className="space-align-block" style={{marginTop: '30px'}}>
+                      <div className="space-align-block" style={{marginTop: '40px'}}>
                         <Space align="center">
                           <Image src="./Vector.svg" preview={false} style={{width: '20px'}} />
                           <span className="mock-block" style={{color: '#C4C4C4'}}>{collection.number}</span>
@@ -234,7 +234,7 @@ export const HomeView = () => {
           {
             items.map((item, index) =>
               <Col span={12} className="gutter-row" key={index}>
-                <h2 style={{color: 'black', fontSize: '24px'}}>{item.title}</h2>
+                <h2>{item.title}</h2>
                 <hr />
                 <Row justify="space-between">
                   {
@@ -296,7 +296,7 @@ export const HomeView = () => {
                         </div>
                       </Col>
                       <Col span={6}>
-                        <div className="space-align-block" style={{marginTop: '30px'}}>
+                        <div className="space-align-block" style={{marginTop: '40px'}}>
                           <Space align="center">
                             <Image src="./Vector.svg" preview={false} style={{width: '20px'}} />
                             <span className="mock-block" style={{color: '#C4C4C4'}}>{collection.number}</span>
@@ -338,7 +338,7 @@ export const HomeView = () => {
                         </div>
                       </Col>
                       <Col span={6}>
-                        <div className="space-align-block" style={{marginTop: '30px'}}>
+                        <div className="space-align-block" style={{marginTop: '40px'}}>
                           <Space align="center">
                             <Image src="./Vector.svg" preview={false} style={{width: '20px'}} />
                             <span className="mock-block" style={{color: '#C4C4C4'}}>{collection.number}</span>
@@ -368,7 +368,7 @@ export const HomeView = () => {
                     <Image src="./img/Vector.svg" preview={false} style={{paddingRight: '10px'}} />
                     <Image src="./img/Vector (1).svg" preview={false} />
                   </div>
-                  <Button className="start_collecting">Post</Button>
+                  <Button className="start_collecting" style={{marginTop: 0}}>Post</Button>
                 </div>
               </div>
               <div className="space-align-block" style={{backgroundColor: "#F3F3F3", padding: '20px 30px', marginTop: '30px'}}>
@@ -377,12 +377,127 @@ export const HomeView = () => {
                   <span className="mock-block" style={{color: 'black'}}>walecyberpunk</span>
                   <span className="mock-block" style={{color: '#C4C4C4'}}>@walecyberpunk - 3h</span>
                 </Space>
-                <Image src="./Art.svg" preview={false} />
-                <Image src="./img/Vector (2).svg" preview={false} />
-                <Image src="./img/Vector.svg" preview={false} />
+                <div style={{width: '100%'}}>
+                  <Image src="./Art.svg" preview={false} width="100%" />
+                </div>
+                <Space>
+                  <Image src="./img/Vector (2).svg" preview={false} />
+                  <span style={{marginRight: '20px'}}></span>
+                  <Image src="./Vector.svg" preview={false} />
+                  <span style={{color: '#C4C4C4'}}>41</span>
+                </Space>
+                <div style={{marginTop: '20px'}}>
+                  <Space align="center">
+                    <Image src="./avatar.svg" preview={false} style={{width: '36.6px'}} />
+                    <span className="mock-block" style={{color: 'black'}}>walecyberpunk</span>
+                    <span className="mock-block" style={{color: '#C4C4C4'}}>@walecyberpunk - 3h</span>
+                  </Space>
+                </div>
+                <h4 style={{marginTop: '20px'}}>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
+                  printer took a galley of type and scrambled it to 
+                </h4>
+                <Space>
+                  <Image src="./img/Vector (2).svg" preview={false} />
+                  <span style={{marginRight: '20px'}}></span>
+                  <Image src="./Vector.svg" preview={false} />
+                  <span style={{color: '#C4C4C4'}}>41</span>
+                </Space>
+                <div style={{marginLeft: '40px'}}>
+                  <div style={{marginTop: '20px'}}>
+                    <Space align="center">
+                      <Image src="./avatar.svg" preview={false} style={{width: '36.6px'}} />
+                      <span className="mock-block" style={{color: 'black'}}>walecyberpunk</span>
+                      <span className="mock-block" style={{color: '#C4C4C4'}}>@walecyberpunk - 3h</span>
+                    </Space>
+                  </div>
+                  <h4 style={{marginTop: '20px'}}>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
+                    printer took a galley of type and scrambled it to 
+                  </h4>
+                  <Space>
+                    <Image src="./img/Vector (2).svg" preview={false} />
+                    <span style={{marginRight: '20px'}}></span>
+                    <Image src="./Vector.svg" preview={false} />
+                    <span style={{color: '#C4C4C4'}}>41</span>
+                  </Space>
+                </div>
+                <div style={{marginTop: '20px'}}>
+                  <Row gutter={16}>
+                    <Col span={2} className="gutter-row" style={{marginTop: '5px'}}>
+                      <Image src="./avatar.svg" preview={false} style={{width: '36.6px'}} />
+                    </Col>
+                    <Col span={22} className="gutter-row">
+                      <Input defaultValue="write a comment..." className="subscribe" />  
+                    </Col>
+                  </Row>
+                </div>
               </div>
             </Col>
-            <Col className="gutter-row" span={12}></Col>
+            <Col className="gutter-row" span={12}>
+              <div className="space-align-block" style={{backgroundColor: "#F3F3F3", padding: '20px 30px'}}>
+                <Space align="center">
+                  <Image src="./avatar.svg" preview={false} style={{width: '36.6px'}} />
+                  <span className="mock-block" style={{color: 'black'}}>walecyberpunk</span>
+                  <span className="mock-block" style={{color: '#C4C4C4'}}>@walecyberpunk - 3h</span>
+                </Space>
+                <div style={{width: '100%'}}>
+                  <Image src="./Art.svg" preview={false} width="100%" />
+                </div>
+                <Space>
+                  <Image src="./img/Vector (2).svg" preview={false} />
+                  <span style={{marginRight: '20px'}}></span>
+                  <Image src="./Vector.svg" preview={false} />
+                  <span style={{color: '#C4C4C4'}}>41</span>
+                </Space>
+                <div style={{marginTop: '20px'}}>
+                  <Space align="center">
+                    <Image src="./avatar.svg" preview={false} style={{width: '36.6px'}} />
+                    <span className="mock-block" style={{color: 'black'}}>walecyberpunk</span>
+                    <span className="mock-block" style={{color: '#C4C4C4'}}>@walecyberpunk - 3h</span>
+                  </Space>
+                </div>
+                <h4 style={{marginTop: '20px'}}>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
+                  printer took a galley of type and scrambled it to 
+                </h4>
+                <Space>
+                  <Image src="./img/Vector (2).svg" preview={false} />
+                  <span style={{marginRight: '20px'}}></span>
+                  <Image src="./Vector.svg" preview={false} />
+                  <span style={{color: '#C4C4C4'}}>41</span>
+                </Space>
+                <div style={{marginLeft: '40px'}}>
+                  <div style={{marginTop: '20px'}}>
+                    <Space align="center">
+                      <Image src="./avatar.svg" preview={false} style={{width: '36.6px'}} />
+                      <span className="mock-block" style={{color: 'black'}}>walecyberpunk</span>
+                      <span className="mock-block" style={{color: '#C4C4C4'}}>@walecyberpunk - 3h</span>
+                    </Space>
+                  </div>
+                  <h4 style={{marginTop: '20px'}}>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
+                    printer took a galley of type and scrambled it to 
+                  </h4>
+                  <Space>
+                    <Image src="./img/Vector (2).svg" preview={false} />
+                    <span style={{marginRight: '20px'}}></span>
+                    <Image src="./Vector.svg" preview={false} />
+                    <span style={{color: '#C4C4C4'}}>41</span>
+                  </Space>
+                </div>
+                <div style={{marginTop: '20px'}}>
+                  <Row gutter={16}>
+                    <Col span={2} className="gutter-row" style={{marginTop: '5px'}}>
+                      <Image src="./avatar.svg" preview={false} style={{width: '36.6px'}} />
+                    </Col>
+                    <Col span={22} className="gutter-row">
+                      <Input defaultValue="write a comment..." className="subscribe" />  
+                    </Col>
+                  </Row>
+                </div>
+              </div>
+            </Col>
           </Row>
         </div>
       }

@@ -6,10 +6,13 @@ import {
   ArtistsView,
   ArtistView,
   ArtView,
+  ArtsView,
   ArtworksView,
   AuctionCreateView,
   AuctionView,
   HomeView,
+  MarketView,
+  PhotoView,
 } from './views';
 import { AdminView } from './views/admin';
 import { BillingView } from './views/auction/billing';
@@ -21,6 +24,21 @@ export function Routes() {
         <Providers>
           <Switch>
             <Route exact path="/admin" component={() => <AdminView />} />
+            <Route
+              exact
+              path="/market"
+              component={() => <MarketView />}
+            />
+            <Route 
+              exact
+              path="/arts"
+              component={() => <ArtsView />}
+            />
+            <Route 
+              exact
+              path="/photography"
+              component={() => <PhotoView />}
+            />
             <Route
               exact
               path="/analytics"
