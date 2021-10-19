@@ -10,3 +10,6 @@ export { ArtworksView } from './artworks';
 export { AnalyticsView } from './analytics';
 export { MarketView } from './market';
 export { PhotoView } from './photo';
+export { SignInView } from './signin';
+export { CreateView } from './create';
+export { AuctionMarketView } from './auctionMarketView';

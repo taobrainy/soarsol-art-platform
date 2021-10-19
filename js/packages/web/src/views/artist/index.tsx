@@ -49,10 +49,10 @@ export const ArtistView = () => {
               {creator?.info.name || creator?.info.address}
             </h2>
             <br />
-            <div className="info-header">ABOUT THE CREATOR</div>
+            <h6 style={{ color:'black' }}>ABOUT THE CREATOR</h6>
             <div className="info-content">{creator?.info.description}</div>
             <br />
-            <div className="info-header">Art Created</div>
+            <h6 style={{ color:'black' }}>Art Created</h6>
             {artworkGrid}
           </Col>
         </Row>
