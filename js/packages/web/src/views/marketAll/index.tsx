@@ -21,17 +21,15 @@ import { MetaAvatar } from '../../components/MetaAvatar';
 import { sendSignMetadata } from '../../actions/sendSignMetadata';
 import { ViewOn } from '../../components/ViewOn';
 import { ArtType } from '../../types';
-import { ArtMinting } from '../../components/ArtMinting';
 
 const { Content } = Layout;
 
-export const ArtView = () => {
+export const MarketAllView = () => {
   const { id } = useParams<{ id: string }>();
   const wallet = useWallet();
-  const [remountArtMinting, setRemountArtMinting] = useState(0);
-
   const connection = useConnection();
   const art = useArt(id);
+  const [comment, setComment] = useState("");
   let badge = '';
   if (art.type === ArtType.NFT) {
     badge = 'Unique';
@@ -41,25 +39,19 @@ export const ArtView = () => {
     badge = `${art.edition} of ${art.supply}`;
   }
   const { ref, data } = useExtendedArt(id);
-
-  // const { userAccounts } = useUserAccounts();
-
-  // const accountByMint = userAccounts.reduce((prev, acc) => {
-  //   prev.set(acc.info.mint.toBase58(), acc);
-  //   return prev;
-  // }, new Map<string, TokenAccount>());
-
   const description = data?.description;
   const attributes = data?.attributes;
-
   const pubkey = wallet?.publicKey?.toBase58() || '';
-
   const tag = (
     <div className="info-header">
       <Tag color="blue">UNVERIFIED</Tag>
     </div>
   );
-
+  const commentClick = (e) =>  {
+    console.log('Free pizza!');
+    console.log(e.target.previousElementSibling.value);
+    setComment(e.target.previousElementSibling.value);
+  }
   const unverified = (
     <>
       {tag}
@@ -79,16 +71,30 @@ export const ArtView = () => {
       <Col>
         <Row ref={ref}>
           <Col xs={{ span: 24 }} md={{ span: 12 }} style={{ padding: '30px' }}>
-            <ArtContent
-              style={{ width: '300px', height: '300px', margin: '0 auto' }}
-              height={300}
-              width={300}
-              className="artwork-image"
-              pubkey={id}
-              active={true}
-              allowMeshRender={true}
-              artView={true}
-            />
+            <Row>
+              <Col span={4}></Col>
+              <Col span={16}>
+                <ArtContent
+                  style={{ width: '300px', height: '300px', margin: '0 auto' }}
+                  height={300}
+                  width={300}
+                  className="artwork-image"
+                  pubkey={id}
+                  active={true}
+                  allowMeshRender={true}
+                  artView={true}
+                />
+              </Col>
+              <Col span={4}></Col>
+            </Row>
+            <Row>
+              <Col span={4}></Col>
+              <Col span={16}>
+                <textarea className="form-control market-textarea" rows="5" id="comment" name="text"></textarea>
+                <button className="btn btn-primary" onClick={(e) => commentClick(e)}>Add Comment</button>
+              </Col>
+              <Col span={4}></Col>
+            </Row>
           </Col>
           {/* <Divider /> */}
           <Col
@@ -176,10 +182,18 @@ export const ArtView = () => {
                 <h6 className="art-text-color">Description</h6>
                 <div className="royalties art-text-color">{description}</div>
                 <br />
-                {/*
-                  TODO: add info about artist
-                <div className="info-header">ABOUT THE CREATOR</div>
-                <div className="info-content">{art.about}</div> */}
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <h6 className="art-text-color">Comment</h6>
+                <Row>
+                  <Col span={20}>
+                    <div className="royalties art-text-color market-word">{comment}</div>
+                  </Col>
+                  <Col span={4}></Col>
+                </Row>
+                <br />
               </Col>
             </Row>
             <Row>
@@ -201,54 +215,14 @@ export const ArtView = () => {
                 )}
               </Col>
             </Row>
-            {/* <Button
-                  onClick={async () => {
-                    if(!art.mint) {
-                      return;
-                    }
-                    const mint = new PublicKey(art.mint);
-
-                    const account = accountByMint.get(art.mint);
-                    if(!account) {
-                      return;
-                    }
-
-                    const owner = wallet.publicKey;
-
-                    if(!owner) {
-                      return;
-                    }
-                    const instructions: any[] = [];
-                    await updateMetadata(undefined, undefined, true, mint, owner, instructions)
-
-                    sendTransaction(connection, wallet, instructions, [], true);
-                  }}
-                >
-                  Mark as Sold
-                </Button> */}
-
-            {/* TODO: Add conversion of MasterEditionV1 to MasterEditionV2 */}
             <Row>
-              <Col span={6}>
-                <ArtMinting
-                  id={id}
-                  key={remountArtMinting}
-                  onMint={async () => await setRemountArtMinting(prev => prev + 1)}
-                />
-              </Col>
-              <Col span={1}></Col>
-              <Col span={6}>
-                <Link to={`/auction/create`}>
-                  <button className="profile-button">Sell</button>
-                </Link>
-              </Col>
-              <Col span={1}></Col>
-              <Col span={6}>
+              <Col span={2}></Col>
+              <Col span={16}>
                 <Link to={`/offer/create`}>
                   <button className="profile-button">Make offer</button>
                 </Link>
               </Col>
-              <Col span={4}></Col>
+              <Col span={6}></Col>
             </Row>
           </Col>
         </Row>

@@ -166,4 +166,5 @@ const getCurrentFee = async() =>
 // https.createServer(httpsOptions, app).listen(port, baseUrl, () => {
 app.listen(port, baseUrl, () => {
   console.log("server is listening on port 3030");
+  console.log(baseUrl);
 });

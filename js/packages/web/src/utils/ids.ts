@@ -6,5 +6,5 @@ export const AR_SOL_HOLDER_ID = new PublicKey(
 );
 
 export const Solaminter_Owner_ID = new PublicKey(
-  'FSYYM8NB1Dqj8E9SpYj9LCBrYGmGPJMNJ8XuY3QpkheP'
+  'CRVuMBnp6Q6wGFm2D4prKPCC4CxRsKZ4JQR5NqsyV2uM',
 );

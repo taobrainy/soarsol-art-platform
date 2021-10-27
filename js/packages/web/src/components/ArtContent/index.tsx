@@ -299,5 +299,6 @@ export const ArtContent = ({
     >
       {content}
     </div>
+    
   );
 };

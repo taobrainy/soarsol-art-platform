@@ -551,6 +551,7 @@ export const AuctionCard = ({
                         display: 'inline-block',
                         margin: '5px 20px',
                         fontWeight: 700,
+                        color: 'white',
                       }}
                     >
                       ◎ {formatAmount(balance.balance, 2)}{' '}

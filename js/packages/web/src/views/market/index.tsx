@@ -114,6 +114,32 @@ export const MarketView = () => {
         : [...Array(10)].map((_, idx) => <CardLoader key={idx} />)}
     </Masonry>
   );
+
+  const marketAllGrid = (
+    <Masonry
+      breakpointCols={breakpointColumnsObj}
+      className="my-masonry-grid"
+      columnClassName="my-masonry-grid_column"
+    >
+      {!isLoading
+        ? items.map((m, idx) => {
+            const id = m.pubkey;
+            return (
+              <Link to={`/marketall/${id}`} key={idx}>
+                <ArtCard
+                  key={id}
+                  pubkey={m.pubkey}
+                  preview={false}
+                  height={250}
+                  width={250}
+                />
+              </Link>
+            );
+          })
+        : [...Array(10)].map((_, idx) => <CardLoader key={idx} />)}
+    </Masonry>
+  );
+
 return (
   <Content>
   <div style={{backgroundColor: '#F3F3F3'}} className="space_entire">
@@ -215,7 +241,7 @@ return (
                   tab={<span className="tab-title">All</span>}
                   key={MarketViewState.Metaplex}
                 >
-                  {artworkGrid}
+                  {marketAllGrid}
                 </TabPane>
                 {connected && (
                   <TabPane

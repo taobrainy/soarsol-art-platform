@@ -9,9 +9,11 @@ import {
   ArtsView,
   ArtworksView,
   AuctionCreateView,
+  OfferCreateView,
   AuctionView,
   HomeView,
   MarketView,
+  MarketAllView,
   PhotoView,
   SignInView,
   CreateView,
@@ -68,6 +70,7 @@ export function Routes() {
               component={() => <MarketView />}
             />
             <Route exact path="/art/:id" component={() => <ArtView />} />
+            <Route exact path="/marketall/:id" component={() => <MarketAllView />} />
             <Route exact path="/artists/:id" component={() => <ArtistView />} />
             <Route exact path="/artists" component={() => <ArtistsView />} />
             <Route exact path="/signin" component={() => <SignInView />} />
@@ -75,6 +78,11 @@ export function Routes() {
               exact
               path="/auction/create/:step_param?"
               component={() => <AuctionCreateView />}
+            />
+            <Route
+              exact
+              path="/offer/create/:step_param?"
+              component={() => <OfferCreateView />}
             />
             <Route
               exact

@@ -415,11 +415,11 @@ export const AuctionBids = ({
 
   return (
     <Col style={{ width: '100%' }}>
-      <h6>Bid History</h6>
-      {bidLines.slice(0, 10)}
+      <h6 className="auction-color">Bid History</h6>
+      <p>{bidLines.slice(0, 10)}</p>
       {bids.length > 10 && (
         <div
-          className="full-history"
+          className="full-history auction-color"
           onClick={() => setShowHistoryModal(true)}
           style={{
             cursor: 'pointer',
@@ -446,6 +446,7 @@ export const AuctionBids = ({
             overflowY: 'scroll',
             width: '100%',
           }}
+          className="auction-color"
         >
           {bidLines}
         </div>
